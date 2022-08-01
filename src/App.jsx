@@ -5,23 +5,21 @@ import GoalList from './components/Goals/GoalList/GoalList';
 import './App.css';
 
 const DUMMY_GOALS = [
-  { id: 'g1', text: 'Added Goal will be listed here' },
-  { id: 'g2', text: 'You can delete the Goal by clicking it' },
+  { id: 'g1', text: 'Your added Goal will be listed here' },
+  { id: 'g2', text: 'You can delete the Goal by clicking on it' },
 ];
 
 const App = () => {
   const [goals, setGoals] = useState(DUMMY_GOALS);
 
   const addGoalHandler = (goalTxt)=> {
-    if(goalTxt !== ''){
-      const goal = {
-        id: Date.now() + '' + Math.floor(Math.random()*78),
-        text: goalTxt
-      }
-      setGoals( prevGoals=> {
-        return [goal, ...prevGoals]
-      })
+    const goal = {
+      id: Date.now() + '' + Math.floor(Math.random()*78),
+      text: goalTxt
     }
+    setGoals( prevGoals=> {
+      return [goal, ...prevGoals]
+    })
   }
 
   const deleteGoalHandler = (goalId)=>{
